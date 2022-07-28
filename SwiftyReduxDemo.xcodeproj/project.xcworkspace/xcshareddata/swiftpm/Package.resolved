@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "swiftyredux",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/max-kryuchkov/SwiftyRedux",
+      "state" : {
+        "branch" : "main",
+        "revision" : "2639ab8d642696e2774d191cdd003fe1c0f37b13"
+      }
+    }
+  ],
+  "version" : 2
+}
