@@ -15,8 +15,6 @@ extension Reducers {
         switch action {
         case _ as ColorActions.NextValue:
             state = state.updating(value: state.value + 1)
-        case _ as ColorActions.DidChangeValue:
-            break
         default:
             break
         }

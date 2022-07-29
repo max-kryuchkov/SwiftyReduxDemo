@@ -13,13 +13,13 @@ struct RequestActions {
     
     struct GetData: RequestAction {
         
-        func thunk() -> Thunk<RequestState> {
+        func thunk() -> Thunk<AppState> {
             return Thunk { dispatch, getState in
                 guard let _ = getState() else {
                     return
                 }
                 dispatch(DidStart())
-                NetworkManager().getTestData { result in
+                Application.networkManager.getTestData { result in
                     switch result {
                     case .success(let posts):
                         dispatch(DidFinish(posts: posts))

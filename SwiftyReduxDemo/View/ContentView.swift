@@ -12,12 +12,10 @@ struct ContentView: View {
     
     @EnvironmentObject private var store: Store<AppState>
     
-    private let colors: [Color] = [.yellow, .gray, .indigo, .red, .mint, .green]
-    
     var body: some View {
         TabView {
-            ColorView()
             RequestView()
+            ColorView()
         }
     }
 }

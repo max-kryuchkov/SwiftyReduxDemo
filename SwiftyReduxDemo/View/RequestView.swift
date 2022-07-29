@@ -17,7 +17,7 @@ struct RequestView: View {
             Spacer()
             switch store.state.requestState.state {
             case .loading:
-                Text("Loading...")
+                ProgressView().scaleEffect(2.0)
             case .presenting:
                 if store.state.requestState.posts.isEmpty {
                     Button("Get Test Posts") {
@@ -25,7 +25,16 @@ struct RequestView: View {
                     }
                 } else {
                     List(store.state.requestState.posts) { post in
-                        Text(post.title)
+                        VStack {
+                            Text((post.title.prefix(60).trimmingCharacters(in: .whitespacesAndNewlines) + "...").capitalized)
+                                .font(.title)
+                            Spacer(minLength: 10.0)
+                            Text(post.body.prefix(120).trimmingCharacters(in: .whitespacesAndNewlines) + "...")
+                                .font(.subheadline)
+                                .foregroundColor(.gray)
+                        }
+                        .padding(.top, 5.0)
+                        .padding(.bottom, 5.0)
                     }
                 }
             case .error(let message):

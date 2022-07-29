@@ -6,8 +6,11 @@
 //
 
 import SwiftyRedux
+import Foundation
 
 enum Application {
+    
+    static let networkManager = NetworkManager()
     static let appStore = Store(state: AppState(),
                                 reducer: Reducers.appReducer,
                                 middleware: [MiddlewareFactory.createThunkMiddleware(),
